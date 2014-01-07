@@ -13,10 +13,14 @@
 #   Integer.  Port logstash is listening for tcp connections on
 #   Default: 5999
 #
+# [*logstash_version*]
+#   Integer.  Logstash log version to use
+#   Default: 0
+#   Valid values: 0, 1
+#
 # [*config_file*]
 #   String.  Path to write the config file to
 #   Default: /etc/puppet/logstash.yaml
-#
 #
 # === Examples
 #
@@ -35,9 +39,10 @@
 # Copyright 2013 EvenUp.
 #
 class logstash_reporter (
-  $logstash_host  = '127.0.0.1',
-  $logstash_port  = 5999,
-  $config_file  = '/etc/puppet/logstash.yaml',
+  $logstash_host    = '127.0.0.1',
+  $logstash_port    = 5999,
+  $logstash_version = 0,
+  $config_file      = '/etc/puppet/logstash.yaml',
 ){
 
   file { $config_file:
